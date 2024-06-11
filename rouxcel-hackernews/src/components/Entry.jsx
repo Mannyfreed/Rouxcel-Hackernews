@@ -10,7 +10,7 @@ const Entry = ({ entry, onDeleteEntry, onAddStory }) => {
           <p>Karma: {entry.karma}</p>
         </div>
       );
-    } else if (entry.type === 'story' || entry.type === "job" || entry.type === "comment" || entry.type === "poll" || entry.type === "pollopt") {
+    } else if (entry.type === 'story' || entry.type === "job" || entry.type === "poll" || entry.type === "pollopt") {
       return (
         <div>
           <p>Title: {entry.title}</p>
