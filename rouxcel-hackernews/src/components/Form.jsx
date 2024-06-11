@@ -17,9 +17,8 @@ const Form = ({ onCreateEntry }) => {
       } else {
         const itemId = extractItemId(url);
         item = await fetchItem(itemId);
-        item.type = item.type || 'story'; // Assuming stories if no type is specified
+        item.type = item.type || 'story';
       }
-      //TODO check if item exists
       onCreateEntry(item);
       setUrl('');
     } catch (error) {

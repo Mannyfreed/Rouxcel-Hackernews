@@ -10,12 +10,12 @@ const Entry = ({ entry, onDeleteEntry, onAddStory }) => {
           <p>Karma: {entry.karma}</p>
         </div>
       );
-    } else if (entry.type === 'story') {
+    } else if (entry.type === 'story' || entry.type === "job" || entry.type === "comment" || entry.type === "poll" || entry.type === "pollopt") {
       return (
         <div>
           <p>Title: {entry.title}</p>
-          <p>Text: {entry.text}</p>
-          <p>Url: {entry.url}</p>
+          {entry.text && <p>Text: {entry.text}</p>}
+          {entry.url && <p>Url: {entry.url}</p>}
           <p>Submitted by: {entry.by}</p>
         </div>
       );

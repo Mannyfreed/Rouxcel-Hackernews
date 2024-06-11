@@ -4,8 +4,11 @@ import Entry from './Entry';
 const EntryList = ({ entries = [], onDeleteEntry, onAddStory }) => {
   return (
     <div>
-      {entries.map((entry) => (
-        <Entry key={entry.id} entry={entry} onDeleteEntry={onDeleteEntry} onAddStory={onAddStory} />
+      {entries.map((entry, index) => (
+        <React.Fragment key={entry.id}>
+          <Entry entry={entry} onDeleteEntry={onDeleteEntry} onAddStory={onAddStory} />
+          {index < entries.length - 1 && <hr className="my-4 border-t-2 border-gray-300" />}
+        </React.Fragment>
       ))}
     </div>
   );
