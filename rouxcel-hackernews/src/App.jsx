@@ -17,7 +17,6 @@ const App = () => {
 
   return (
     <div className="container mx-auto mt-4">
-      <h1 className="text-2xl font-bold mb-4">HackerNews Entries</h1>
       <Form onCreateEntry={handleCreateEntry} />
       <EntryList entries={entries} onDeleteEntry={handleDeleteEntry} />
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Entry = ({ entry }) => {
+const Entry = ({ entry, onDeleteEntry }) => {
   const renderEntryType = () => {
     if (entry.type === 'user') {
       return (
@@ -32,7 +32,10 @@ const Entry = ({ entry }) => {
   return (
     <div className="border p-4 mb-4">
       {renderEntryType()}
-      <button className="ml-2 px-4 py-2 bg-red-500 text-white rounded">
+      <button
+        onClick={() => onDeleteEntry(entry.id)}
+        className="ml-2 px-4 py-2 bg-red-500 text-white rounded"
+      >
         Delete
       </button>
     </div>

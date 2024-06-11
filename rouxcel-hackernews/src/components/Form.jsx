@@ -13,12 +13,13 @@ const Form = ({ onCreateEntry }) => {
       if (isUser) {
         const userId = extractUserId(url);
         item = await fetchUser(userId);
-        item.type = 'user'; // Adding type property for easier rendering later
+        item.type = 'user';
       } else {
         const itemId = extractItemId(url);
         item = await fetchItem(itemId);
         item.type = item.type || 'story'; // Assuming stories if no type is specified
       }
+      //TODO check if item exists
       onCreateEntry(item);
       setUrl('');
     } catch (error) {
