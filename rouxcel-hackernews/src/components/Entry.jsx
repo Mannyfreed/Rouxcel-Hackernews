@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Entry = ({ entry, onDeleteEntry }) => {
+const Entry = ({ entry, onDeleteEntry, onAddStory }) => {
   const renderEntryType = () => {
     if (entry.type === 'user') {
       return (
@@ -13,7 +13,9 @@ const Entry = ({ entry, onDeleteEntry }) => {
     } else if (entry.type === 'story') {
       return (
         <div>
-          <p>Story: {entry.title}</p>
+          <p>Title: {entry.title}</p>
+          <p>Text: {entry.text}</p>
+          <p>Url: {entry.url}</p>
           <p>Submitted by: {entry.by}</p>
         </div>
       );
@@ -21,7 +23,15 @@ const Entry = ({ entry, onDeleteEntry }) => {
       return (
         <div>
           <p>Comment: {entry.text}</p>
-          <p>Link to story: {entry.parent}</p>
+          <p>
+            Link to story: 
+            <button 
+              onClick={() => onAddStory(entry.parent)} 
+              className="text-blue-500 underline ml-1"
+            >
+              {entry.parent}
+            </button>
+          </p>
         </div>
       );
     } else {
